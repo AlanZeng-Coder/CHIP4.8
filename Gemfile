@@ -8,13 +8,16 @@ gem "rails", "~> 7.1.5", ">= 7.1.5.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-group :production do
-  gem 'pg', '1.6.0.rc1' # for Heroku deployment
+
+
+group :development, :test do
+  # 在开发和测试环境下使用 sqlite3
+  gem "sqlite3"
 end
 
-# Use sqlite3 as the database for Active Record
-group :development, :test do
-  gem "sqlite3", ">= 1.4"
+group :production do
+  # 在生产环境下，推荐使用 PostgreSQL (pg)
+  # gem "pg"
 end
 
 
